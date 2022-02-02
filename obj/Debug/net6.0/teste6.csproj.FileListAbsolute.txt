@@ -1,0 +1,15 @@
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.csproj.AssemblyReference.cache
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.AssemblyInfoInputs.cache
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.AssemblyInfo.cs
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.csproj.CoreCompileInputs.cache
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\teste6.exe
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\teste6.deps.json
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\teste6.runtimeconfig.json
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\teste6.dll
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\ref\teste6.dll
+C:\Users\vntrodo\desktop\estudos\github\teste6\bin\Debug\net6.0\teste6.pdb
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.dll
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\ref\teste6.dll
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.pdb
+C:\Users\vntrodo\desktop\estudos\github\teste6\obj\Debug\net6.0\teste6.genruntimeconfig.cache
