@@ -5,5 +5,5 @@
 * exercício com alguns comandos de "operações bancárias";
 * Diferenças de class public e private e de void;
 * this. nameof, get e set.
-* Um pouco sobre de Ilogger e log;
+* Um pouco sobre interfaces com Ilogger e log;
 * aula ainda em andamento...
