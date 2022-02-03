@@ -27,18 +27,27 @@
     Console.Write("Aperte 'Enter' para entrar nos resultados dos exercícios de Banco.");
     Console.ReadLine();
     
-    ConsoleLogger logger = new ConsoleLogger();
+    Ilogger logger = new FileLogger();
 
     BankAccount account1 = new BankAccount("Lucifer", 100, logger);
     BankAccount account2 = new BankAccount("Diabo", 9, logger);
 
-    account1.Deposit(-50); // pelo código, é para ele ignorar um "depósito negativo" e manter o mesmo saldo.
+    account1.Deposit(550); // pelo código, é para ele ignorar um "depósito negativo" e manter o mesmo saldo.
     account2.Deposit(9);
 
     Console.WriteLine($"Your balance is: {account1.Balance}");
     Console.WriteLine($"Your balance is: {account2.Balance}");
 
 
+    }
+}
+
+class FileLogger : Ilogger
+{
+    public void log(string message)
+    {
+        File.AppendAllText("log.txt", $"{message}{Environment.NewLine}");
+        // cria um aquivo .txt com os registros (logs) dos erros (como o depósito negativo). 
     }
 }
 
