@@ -27,10 +27,12 @@
     Console.Write("Aperte 'Enter' para entrar nos resultados dos exercícios de Banco.");
     Console.ReadLine();
     
-    BankAccount account1 = new BankAccount("Lucifer", 100);
-    BankAccount account2 = new BankAccount("Diabo", 9);
+    ConsoleLogger logger = new ConsoleLogger();
 
-    account1.Deposit(-50);
+    BankAccount account1 = new BankAccount("Lucifer", 100, logger);
+    BankAccount account2 = new BankAccount("Diabo", 9, logger);
+
+    account1.Deposit(-50); // pelo código, é para ele ignorar um "depósito negativo" e manter o mesmo saldo.
     account2.Deposit(9);
 
     Console.WriteLine($"Your balance is: {account1.Balance}");
@@ -39,20 +41,38 @@
 
     }
 }
+
+class ConsoleLogger : Ilogger // como são concretos, o compilador avisa o erro. 'CTRL.' ajuda a implementar.  
+{
+    public void log(string message)
+    {
+        Console.WriteLine($"LOGGER : {message}");
+    }
+}
+
+
+interface Ilogger // não são concretos (não pode criar instâncias dele) e por padrão, acessibilidade é pública.
+// ha o costume de começar os nomes das interfaces com "I", mas não é mandatório.
+{
+    void log(string message);
+}
+
+
 class BankAccount
 {
     private string name;
-    private decimal balance;
+    private readonly Ilogger logger;
 
     public decimal Balance 
     { 
-        get { return balance; }
-        private set { balance = value; } // temos que por privado, para tirar o acesso público e
-                                        // assim impedir que qualquer pessoa mude o saldo,
+        get; private set;                // temos que por privado, para tirar o acesso público e
+                                        // assim impedir que qualquer pessoa mude o saldo.
     
+
+         
     }
 
-    public BankAccount(string name, decimal balance)
+    public BankAccount(string name, decimal balance, Ilogger logger)
      { 
 
         if(string.IsNullOrWhiteSpace(name))
@@ -65,18 +85,18 @@ class BankAccount
         }
 
         this.name = name;
-        this.balance = balance;
-
-
+        Balance = balance;
+        this.logger = logger;
     }
 
     public void Deposit(decimal amount)
     {
         if(amount <= 0) // neste caso, está sendo especificado que o depósito não pode ser nem 0 e nem negativo;
         {
+            logger.log($"Não é possível depositar {amount} na conta de {name}.");
             return;
         }
-        balance += amount; // mesma coisa que balance = balance + amount;
+        Balance += amount; // mesma coisa que balance = balance + amount;
     }
 
 
