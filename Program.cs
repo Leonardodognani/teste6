@@ -23,12 +23,19 @@
         // abrupta, o programa roda uma mensagem de erro.
     }
 
-    
-    BankAccount account1 = new BankAccount();
-    account1.name = "Leonardo";
-    account1.balance = 500;
 
-    BankAccount account2 = new BankAccount();
+    Console.Write("Aperte 'Enter' para entrar nos resultados dos exercícios de Banco.");
+    Console.ReadLine();
+    
+    BankAccount account1 = new BankAccount("Lucifer", 100);
+    BankAccount account2 = new BankAccount("Diabo", 9);
+
+    account1.Deposit(-50);
+    account2.Deposit(9);
+
+    Console.WriteLine($"Your balance is: {account1.Balance}");
+    Console.WriteLine($"Your balance is: {account2.Balance}");
+
 
     }
 }
@@ -37,13 +44,45 @@ class BankAccount
     private string name;
     private decimal balance;
 
+    public decimal Balance 
+    { 
+        get { return balance; }
+        private set { balance = value; } // temos que por privado, para tirar o acesso público e
+                                        // assim impedir que qualquer pessoa mude o saldo,
+    
+    }
 
-    public BankAccount(string name, decimal balance);
+    public BankAccount(string name, decimal balance)
      { 
-                this.name = name;
-                this.balance = balance;
+
+        if(string.IsNullOrWhiteSpace(name))
+        {
+            throw new ArgumentException("Nome Inválido.", nameof(name));
+        }
+        if(balance < 0)
+        {
+            throw new Exception("Saldo não pode ser negativo.");
+        }
+
+        this.name = name;
+        this.balance = balance;
 
 
     }
+
+    public void Deposit(decimal amount)
+    {
+        if(amount <= 0) // neste caso, está sendo especificado que o depósito não pode ser nem 0 e nem negativo;
+        {
+            return;
+        }
+        balance += amount; // mesma coisa que balance = balance + amount;
+    }
+
+
+    /*public decimal GetBalance() -------- fica em comentário, pois estamos testando "prop".
+    {
+        return balance;
+    } */
 
 }
